@@ -1,0 +1,54 @@
+:root {
+    --bg-colour: #0d1117;
+    --banner-bg-colour: #161b22;
+    --heading-text: #55a0f6;
+    --text-colour: #8b949e;
+    --border-colour: #21262d;
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: var(--bg-colour);
+}
+
+#root {
+    color: var(--text-colour);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+#searchForm {
+    margin: 1rem auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#username {
+    width: 200px;
+    padding: 5px;
+    margin: 0 1rem;
+    background-color: var(--banner-bg-colour);
+    color: var(--text-colour);
+    border-color: var(--border-colour);
+    border-radius: 5px;
+}
+
+#submitButton {
+    width: 70px;
+    background-color: var(--banner-bg-colour);
+    color: var(--heading-text);
+    border-color: var(--border-colour);
+    border-radius: 1rem;
+    padding: 7px;
+}
+
+#submitButton:hover {
+    cursor: pointer;
+    background-color: var(--border-colour);
+}
