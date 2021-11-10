@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Commits } from '..';
+import './style.css';
 
 export const Repository = ({ data }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -10,14 +11,14 @@ export const Repository = ({ data }) => {
     return (
         <div className={isExpanded ? 'container expanded' : 'container'}>
             <h1 onClick={toggleExpand}>{name}</h1>
-            {isExpanded && <ul>
+            <ul className={isExpanded ? "show" : "hide"}>
                 <li><Commits url={commits_url} /></li>
-                <li>{forks}</li>
-                {language && <li>{language}</li>}
-                <li>{stargazers_count}</li>
-                <li>{open_issues}</li>
-                <li>{watchers}</li>
-            </ul>}
+                <li>forks: {forks}</li>
+                {language && <li>main language: {language}</li>}
+                <li>stars: {stargazers_count}</li>
+                <li>open issues: {open_issues}</li>
+                <li>watchers: {watchers}</li>
+            </ul>
         </div>
     )
 }
