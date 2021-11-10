@@ -14,7 +14,6 @@ export const Repositories = ({ username }) => {
                 }
             }
             const { data } = await axios.get(`https://api.github.com/users/${username}/repos`, options);
-            console.log(data);
             if (cancelRequest) return;
             setRepoData(data);
         }

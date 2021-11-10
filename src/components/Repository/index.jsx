@@ -11,7 +11,6 @@ export const Repository = ({ data }) => {
         <div className={isExpanded ? 'container expanded' : 'container'}>
             <h1 onClick={toggleExpand}>{name}</h1>
             {isExpanded && <ul>
-                {/* <li>{commits_url}</li> */}
                 <li><Commits url={commits_url} /></li>
                 <li>{forks}</li>
                 {language && <li>{language}</li>}

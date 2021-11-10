@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export const Commits = ({ url }) => {
+    const [commits, setCommits] = useState()
 
     useEffect(async () => {
-        console.log(url.replace(/{\/sha}$/, ''));
+
         const options = {
             headers: {
                 Accept: "application/vnd.github.v3+json"
             }
         }
         const { data } = await axios.get(url.replace(/{\/sha}$/, ''), options);
-        console.log(data.length);
+        setCommits(data.length);
     }, [url])
 
     return (
@@ -21,4 +22,4 @@ export const Commits = ({ url }) => {
     )
 }
 
-/word/
+// /word/
