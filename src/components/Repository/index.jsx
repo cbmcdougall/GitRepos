@@ -1,3 +1,6 @@
+import { faCodeBranch, faHistory } from '@fortawesome/free-solid-svg-icons';
+import { faFileCode, faEye, faDotCircle, faStar } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Commits } from '..';
 import './style.css';
@@ -9,15 +12,34 @@ export const Repository = ({ data }) => {
     const toggleExpand = () => setIsExpanded(prevState => !prevState)
 
     return (
-        <div className={isExpanded ? 'container expanded' : 'container'}>
+        <div className={`repo-container${isExpanded ? ' expanded' : ''}`}>
             <h1 onClick={toggleExpand}>{name}</h1>
-            <ul className={isExpanded ? "show" : "hide"}>
-                <li><Commits url={commits_url} /></li>
-                <li>forks: {forks}</li>
-                {language && <li>main language: {language}</li>}
-                <li>stars: {stargazers_count}</li>
-                <li>open issues: {open_issues}</li>
-                <li>watchers: {watchers}</li>
+            <ul className={`repodata-container ${isExpanded ? "show" : "hide"}`}>
+                <li>
+                    <FontAwesomeIcon className="icon" icon={faHistory} />
+                    <Commits url={commits_url} />
+                </li>
+                <li>
+                    <FontAwesomeIcon className="icon" icon={faCodeBranch} />
+                    {forks}
+                </li>
+                {language &&
+                    <li>
+                        <FontAwesomeIcon className="icon" icon={faFileCode} />
+                        {language}
+                    </li>}
+                <li>
+                    <FontAwesomeIcon className="icon" icon={faStar} />
+                    {stargazers_count}
+                </li>
+                <li>
+                    <FontAwesomeIcon className="icon" icon={faDotCircle} />
+                    {open_issues}
+                </li>
+                <li>
+                    <FontAwesomeIcon className="icon" icon={faEye} />
+                    {watchers}
+                </li>
             </ul>
         </div>
     )
