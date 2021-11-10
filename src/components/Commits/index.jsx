@@ -11,9 +11,9 @@ export const Commits = ({ url }) => {
                 Accept: "application/vnd.github.v3+json"
             }
         }
-        // const { data } = await axios.get(url.replace(/{\/sha}$/, ''), options);
+        const { data } = await axios.get(url.replace(/{\/sha}$/, ''), options);
         // Mock dataset
-        const data = [{}, {}, {}];
+        // const data = [{}, {}, {}];
         setCommits(data.length);
     }, [url])
 
