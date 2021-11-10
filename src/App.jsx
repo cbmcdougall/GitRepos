@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Header, Footer } from './layout';
 import { Repositories } from "./components";
+import './style.css'
 
 export const App = () => {
     const [formData, setFormData] = useState("");
@@ -17,11 +19,16 @@ export const App = () => {
 
     return (
         <>
-            <form onSubmit={handleFormSubmit}>
-                <input type="text" name="username" id="username" onChange={handleInput} value={formData} />
-                <button type="submit">Submit</button>
+            <Header />
+            <form onSubmit={handleFormSubmit} id="searchForm">
+                <input
+                    type="text" name="username" id="username"
+                    onChange={handleInput} value={formData}
+                    placeholder="Search for a username" />
+                <button type="submit" id="submitButton">Search</button>
             </form>
             {isSubmitted && <Repositories username={username} />}
+            <Footer />
         </>
     )
 }
