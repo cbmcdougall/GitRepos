@@ -1,29 +1,34 @@
 import React, { useState } from "react";
+import { Header, Footer } from './layout';
 import { Repositories } from "./components";
+import './style.css'
 
 export const App = () => {
+    const [formData, setFormData] = useState("");
     const [username, setUsername] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleInput = e => {
-        setUsername(e.target.value)
+        setFormData(e.target.value)
     }
     const handleFormSubmit = e => {
         e.preventDefault();
+        setUsername(formData);
         setIsSubmitted(true);
     }
 
     return (
         <>
-            <form onSubmit={handleFormSubmit}>
-                <input type="text" name="username" id="username" onChange={handleInput} value={username} />
-                <button type="submit">Submit</button>
+            <Header />
+            <form onSubmit={handleFormSubmit} id="searchForm">
+                <input
+                    type="text" name="username" id="username"
+                    onChange={handleInput} value={formData}
+                    placeholder="Search for a username" />
+                <button type="submit" id="submitButton">Search</button>
             </form>
             {isSubmitted && <Repositories username={username} />}
+            <Footer />
         </>
     )
 }
-
-// https://api.github.com/users/USERNAME/repos
-
-// name: "", commits_url: url, forks: #, language: "", stargazers_count: #, open_issues: #, watchers: #

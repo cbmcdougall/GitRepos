@@ -12,14 +12,14 @@ export const Commits = ({ url }) => {
             }
         }
         const { data } = await axios.get(url.replace(/{\/sha}$/, ''), options);
+        // Mock dataset
+        // const data = [{}, {}, {}];
         setCommits(data.length);
     }, [url])
 
     return (
         <>
-            {commits}
+            commits: {commits}
         </>
     )
 }
-
-// /word/
