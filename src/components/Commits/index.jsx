@@ -19,7 +19,7 @@ export const Commits = ({ url }) => {
 
     return (
         <>
-            commits: {commits}
+            {commits}
         </>
     )
 }
