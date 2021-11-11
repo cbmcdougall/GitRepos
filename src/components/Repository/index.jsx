@@ -15,30 +15,36 @@ export const Repository = ({ data }) => {
         <div className={`repo-container${isExpanded ? ' expanded' : ''}`}>
             <h1 onClick={toggleExpand}>{name}</h1>
             <ul className={`repodata-container ${isExpanded ? "show" : "hide"}`}>
-                <li>
+                <li className="tooltip">
                     <FontAwesomeIcon className="icon" icon={faHistory} />
                     <Commits url={commits_url} />
+                    <span className="tooltip-text">commits</span>
                 </li>
-                <li>
+                <li className="tooltip">
                     <FontAwesomeIcon className="icon" icon={faCodeBranch} />
                     {forks}
+                    <span className="tooltip-text">forks</span>
                 </li>
                 {language &&
-                    <li>
+                    <li className="tooltip">
                         <FontAwesomeIcon className="icon" icon={faFileCode} />
                         {language}
+                        <span className="tooltip-text">main language</span>
                     </li>}
-                <li>
+                <li className="tooltip">
                     <FontAwesomeIcon className="icon" icon={faStar} />
                     {stargazers_count}
+                    <span className="tooltip-text">stars</span>
                 </li>
-                <li>
+                <li className="tooltip">
                     <FontAwesomeIcon className="icon" icon={faDotCircle} />
                     {open_issues}
+                    <span className="tooltip-text">open issues</span>
                 </li>
-                <li>
+                <li className="tooltip">
                     <FontAwesomeIcon className="icon" icon={faEye} />
                     {watchers}
+                    <span className="tooltip-text">watchers</span>
                 </li>
             </ul>
         </div>
