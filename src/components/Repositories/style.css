@@ -1,0 +1,10 @@
+.repositories-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 3px solid var(--border-colour);
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
